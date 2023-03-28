@@ -1,4 +1,4 @@
-const userID = "738748102311280681"; // put ur discord userId here
+const userID = "738748102311280681"; // put ur discord userId here!
 const statusCircle = document.querySelector(".status-circle");
 
 async function fetchDiscordStatus() {
