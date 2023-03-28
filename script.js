@@ -1,4 +1,4 @@
-const userID = "738748102311280681"; // put ur discord userId here!
+const userID = "738748102311280681"; // put ur discord userId here
 const statusCircle = document.querySelector(".status-circle");
 
 async function fetchDiscordStatus() {
@@ -10,7 +10,7 @@ async function fetchDiscordStatus() {
     const { activities } = data;
 
     // Check status
-    if (activities.find((activity) => activity.type === "PLAYING")) {
+    if (activities.find((activity) => activity.type === 1 && activity.url.includes("twitch.tv"))) {
       statusCircle.style.backgroundColor = "#aa8ed6"; // Streaming
     } else if (data.discord_status === "online") {
       statusCircle.style.backgroundColor = "#43B581"; // Online
@@ -19,7 +19,7 @@ async function fetchDiscordStatus() {
     } else if (data.discord_status === "dnd") {
       statusCircle.style.backgroundColor = "#F04747"; // Dnd
     } else {
-      statusCircle.style.backgroundColor = "#747F8D"; // Invisible
+      statusCircle.style.backgroundColor = "#747F8D"; // Invisible/Offline
     }
   } catch (error) {
     console.error("Can't get Discord status:", error);
@@ -27,4 +27,4 @@ async function fetchDiscordStatus() {
 }
 
 fetchDiscordStatus();
-setInterval(fetchDiscordStatus, 60000); // Update status every 1 minute (60000ms)
+setInterval(fetchDiscordStatus, 1000); // Update status every 1s (1000ms)
