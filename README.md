@@ -12,3 +12,5 @@ Using <a href="https://github.com/Phineas/lanyard">Phineas's lanyard</a> api to 
 <img src="https://raw.githubusercontent.com/MiyagawaMizu/Discord-Status/main/image-ver/status/offline.png" width="17"></img> - **Offline / Insivible**
 
 <img src="https://github.com/MiyagawaMizu/Discord-Status/raw/main/preview.gif" alt="Preview of Discord-Status" width="100%" height="100%">
+
+**My Discord Status Right Now:** <img src="https://miyagawamizu.github.io/Discord-Status/" width="17"></img>
