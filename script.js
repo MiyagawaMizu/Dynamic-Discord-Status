@@ -13,16 +13,16 @@ async function fetchDiscordStatus() {
     let imagePath;
     switch (discord_status) {
       case "online":
-        imagePath = "/status/online.png";
+        imagePath = "/status/online.svg";
         break;
       case "idle":
-        imagePath = "/status/idle.png";
+        imagePath = "/status/idle.svg";
         break;
       case "dnd":
-        imagePath = "/status/dnd.png";
+        imagePath = "/status/dnd.svg";
         break;
       case "offline":
-        imagePath = "/status/offline.png";
+        imagePath = "/status/offline.svg";
         break;
       default:
         imagePath = "";
@@ -35,7 +35,7 @@ async function fetchDiscordStatus() {
         (activity) => activity.type === 1 && activity.url.includes("twitch.tv")
       )
     ) {
-      imagePath = "/status/streaming.png";
+      imagePath = "/status/streaming.svg";
     }
 
     // Update images
