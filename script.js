@@ -1,5 +1,5 @@
-const userID = "738748102311280681"; // put ur discord userId here
-const statusCircle = document.querySelector(".status-circle");
+const userID = "738748102311280681"; //put your Discord user id here
+const statusImage = document.getElementById("status-image");
 
 async function fetchDiscordStatus() {
   try {
@@ -7,24 +7,44 @@ async function fetchDiscordStatus() {
       `https://api.lanyard.rest/v1/users/${userID}`
     );
     const { data } = response.data;
-    const { activities } = data;
+    const { discord_status, activities } = data;
 
-    // Check status
-    if (activities.find((activity) => activity.type === 1 && activity.url.includes("twitch.tv"))) {
-      statusCircle.style.backgroundColor = "#aa8ed6"; // Streaming
-    } else if (data.discord_status === "online") {
-      statusCircle.style.backgroundColor = "#43B581"; // Online
-    } else if (data.discord_status === "idle") {
-      statusCircle.style.backgroundColor = "#FAA61A"; // Away/Afk
-    } else if (data.discord_status === "dnd") {
-      statusCircle.style.backgroundColor = "#F04747"; // Dnd
-    } else {
-      statusCircle.style.backgroundColor = "#747F8D"; // Invisible/Offline
+    // Get the image path corresponding to the state
+    let imagePath;
+    switch (discord_status) {
+      case "online":
+        imagePath = "/status/online.png";
+        break;
+      case "idle":
+        imagePath = "/status/idle.png";
+        break;
+      case "dnd":
+        imagePath = "/status/dnd.png";
+        break;
+      case "offline":
+        imagePath = "/status/offline.png";
+        break;
+      default:
+        imagePath = "";
+        break;
     }
+
+    // Check operation status to update image path
+    if (
+      activities.find(
+        (activity) => activity.type === 1 && activity.url.includes("twitch.tv")
+      )
+    ) {
+      imagePath = "/status/streaming.png";
+    }
+
+    // Update images
+    statusImage.src = imagePath;
+    statusImage.alt = `Discord Status: ${discord_status}`;
   } catch (error) {
-    console.error("Can't get Discord status:", error);
+    console.error("Unable to get Discord status:", error);
   }
 }
 
 fetchDiscordStatus();
-setInterval(fetchDiscordStatus, 1000); // Update status every 1s (1000ms)
+setInterval(fetchDiscordStatus, 1000); // Update status every 1 seconds
