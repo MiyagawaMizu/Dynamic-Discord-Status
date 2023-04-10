@@ -3,9 +3,8 @@
     "gh-pages": "^5.0.0"
   },
   "scripts": {
-    "build": "react-scripts np,build",
-    "predeploy": "npm run build",
+    "build": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://miyagawamizu.github.io/Dynamic-Discord-Status"
+  "homepage": "https://mizu.is-a.dev/Dynamic-Discord-Status/"
 }
