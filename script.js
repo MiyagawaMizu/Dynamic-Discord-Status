@@ -13,16 +13,16 @@ async function fetchDiscordStatus() {
     let imagePath;
     switch (discord_status) {
       case "online":
-        imagePath = "/status/online.svg";
+        imagePath = "/Dynamic-Discord-Status/status/online.svg";
         break;
       case "idle":
-        imagePath = "/status/idle.svg";
+        imagePath = "/Dynamic-Discord-Status/status/idle.svg";
         break;
       case "dnd":
-        imagePath = "/status/dnd.svg";
+        imagePath = "/Dynamic-Discord-Status/status/dnd.svg";
         break;
       case "offline":
-        imagePath = "/status/offline.svg";
+        imagePath = "/Dynamic-Discord-Status/status/offline.svg";
         break;
       default:
         imagePath = "";
